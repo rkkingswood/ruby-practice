@@ -106,6 +106,14 @@ class MenuController
       end
     end
 
+    def self_destruct
+      for entry in address_book.entries do
+        delete_entry(entry)
+      end
+      puts "Self-Destruct Complete"
+      main_menu
+    end  
+
     def delete_entry(entry)
      address_book.entries.delete(entry)
      puts "#{entry.name} has been deleted"
@@ -152,6 +160,7 @@ class MenuController
    def entry_submenu(entry)
      puts "n - next entry"
      puts "d - delete entry"
+     puts "sd - self-destruct"
      puts "e - edit this entry"
      puts "m - return to main menu"
 
